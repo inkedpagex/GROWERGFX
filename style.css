@@ -22,17 +22,22 @@ html, body {
     color: white; /* Default text color */
 }
 
-/* Apply Gradient Effect to All Text */
-* {
+/* Apply Gradient Effect to All Text Except h1, p, and Buttons */
+*:not(h1):not(p):not(button) {
     background: linear-gradient(45deg, #0ff, #00f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Button Styling (Gradient Background, Normal Text) */
+/* h1 and p should remain White */
+h1, p {
+    color: white;
+}
+
+/* Button Styling (Gradient Background, Normal White Text) */
 button {
     background: linear-gradient(45deg, #0ff, #00f); /* Gradient background */
-    color: white; /* Normal button text */
+    color: white; /* Normal text */
     padding: 10px 20px;
     border: none;
     cursor: pointer;
