@@ -16,21 +16,11 @@
 html {
     scroll-behavior: smooth;
 }
-
 body {
-    background: #fff; /* Keep a solid background */
-    color: transparent; /* Make text invisible before applying gradient */
-}
-
-* {
-    background: none; /* Ensures background remains unchanged */
-}
-
-html, body {
     background: #fff; /* Keep the background white or any other color you want */
 }
 
-h1, h2, h3, p, span, a, button { /* Apply to specific text elements */
+h1, h2, h3, p, span, a,{ /* Apply to specific text elements */
     background: linear-gradient(45deg, #0ff, #00f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
