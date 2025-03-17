@@ -16,14 +16,27 @@
 html {
     scroll-behavior: smooth;
 }
-body {
-    background: #000; /* Keep the background white or any other color you want */
+/* Keep website background black */
+html, body {
+    background: #000;
+    color: white; /* Default text color */
 }
 
-h1, h2, h3, p, span, a,{ /* Apply to specific text elements */
+/* Apply Gradient Effect to All Text */
+* {
     background: linear-gradient(45deg, #0ff, #00f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Button Styling (Gradient Background, Normal Text) */
+button {
+    background: linear-gradient(45deg, #0ff, #00f); /* Gradient background */
+    color: white; /* Normal button text */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 /* Animated Background */
 .animated-background {
