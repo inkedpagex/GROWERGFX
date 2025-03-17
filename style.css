@@ -17,7 +17,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background: #fff; /* Keep the background white or any other color you want */
+    background: #000; /* Keep the background white or any other color you want */
 }
 
 h1, h2, h3, p, span, a,{ /* Apply to specific text elements */
