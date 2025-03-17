@@ -42,6 +42,17 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Close menu when clicking a nav link (Fix for mobile redirection issue)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        setTimeout(() => {
+            menuToggle.classList.remove('menu-open');
+            navLinks.classList.remove('active');
+            body.classList.remove('menu-active');
+        }, 100); // Small delay allows redirection
+    });
+});
+
 // Number Animation
 function animateNumbers() {
     const numbers = document.querySelectorAll('.stat-number, .achievement-number');
