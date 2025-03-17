@@ -27,13 +27,19 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const body = document.body;
 
+// Selecting necessary elements
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const body = document.body;
+
+// Toggle menu open/close when clicking the menu button
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('menu-open');
     navLinks.classList.toggle('active');
     body.classList.toggle('menu-active');
 });
 
-// Close menu when clicking outside
+// Close menu when clicking outside of it
 document.addEventListener('click', (e) => {
     if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
         menuToggle.classList.remove('menu-open');
@@ -42,14 +48,27 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Close menu when clicking a nav link (Fix for mobile redirection issue)
+// Smooth scrolling and close menu on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        setTimeout(() => {
-            menuToggle.classList.remove('menu-open');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-active');
-        }, 100); // Small delay allows redirection
+    link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href'); // Get section ID
+
+        if (targetId.startsWith("#")) {
+            event.preventDefault(); // Prevent default jump behavior
+
+            // Scroll smoothly to the section
+            document.querySelector(targetId).scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            // Close the menu after scrolling
+            setTimeout(() => {
+                menuToggle.classList.remove('menu-open');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-active');
+            }, 300); // Small delay to ensure smooth scroll
+        }
     });
 });
 
