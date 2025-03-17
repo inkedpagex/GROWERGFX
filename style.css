@@ -18,16 +18,14 @@ html {
 }
 
 body {
-    background-color: var(--primary-black);
-    color: var(--text-white);
-    line-height: 1.6;
-    overflow-x: hidden;
+    background: #fff; /* Keep a solid background */
+    color: transparent; /* Make text invisible before applying gradient */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+* {
+    background: linear-gradient(45deg, #0ff, #00f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Animated Background */
