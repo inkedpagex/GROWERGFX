@@ -27,49 +27,45 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const body = document.body;
 
-// Selecting necessary elements
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const body = document.body;
-
-// Toggle menu open/close when clicking the menu button
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('menu-open');
     navLinks.classList.toggle('active');
     body.classList.toggle('menu-active');
 });
 
-// Close menu when clicking outside of it
+// Handle navigation links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        // Close mobile menu
+        menuToggle.classList.remove('menu-open');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-active');
+        
+        // Smooth scroll to target
+        if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
         menuToggle.classList.remove('menu-open');
         navLinks.classList.remove('active');
         body.classList.remove('menu-active');
     }
-});
-
-// Smooth scrolling and close menu on link click
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        const targetId = link.getAttribute('href'); // Get section ID
-
-        if (targetId.startsWith("#")) {
-            event.preventDefault(); // Prevent default jump behavior
-
-            // Scroll smoothly to the section
-            document.querySelector(targetId).scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-            // Close the menu after scrolling
-            setTimeout(() => {
-                menuToggle.classList.remove('menu-open');
-                navLinks.classList.remove('active');
-                body.classList.remove('menu-active');
-            }, 300); // Small delay to ensure smooth scroll
-        }
-    });
 });
 
 // Number Animation
