@@ -766,9 +766,9 @@ body {
 /* Adjust portfolio item size for mobile devices */
 @media (max-width: 768px) {
     .portfolio-item {
-        min-width: 150px; /* Reduce the width of portfolio items */
-        height: 100px; /* Reduce the height of portfolio items */
-        margin: 0 8px; /* Adjust margin as needed */
+        min-width: 250px; /* Reduce the width of portfolio items */
+        height: 150px; /* Reduce the height of portfolio items */
+        margin: 0 10px; /* Adjust margin as needed */
     }
 
     .portfolio-row-inner {
