@@ -693,7 +693,7 @@ body {
 .portfolio-row {
     display: flex;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
 }
 
