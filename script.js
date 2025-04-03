@@ -374,3 +374,19 @@ document.addEventListener('DOMContentLoaded', () => {
     createPortfolioGrid();
     createTestimonialsSlider();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all portfolio items
+    var portfolioItems = document.querySelectorAll(".portfolio-item");
+
+    portfolioItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+            // Remove the enlarged class from all items
+            portfolioItems.forEach(function(i) {
+                i.classList.remove("enlarged");
+            });
+            // Add the enlarged class to the clicked item
+            this.classList.add("enlarged");
+        });
+    });
+});
