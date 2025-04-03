@@ -779,6 +779,14 @@ body {
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-150px * 7)); } /* Adjust calculation based on new item width */
     }
+   /* Enlarged portfolio item styles for mobile devices */
+@media (max-width: 768px) {
+    .portfolio-item.enlarged {
+        position: relative;
+        z-index: 1000;
+        transform: scale(1.2); /* Scale up the item */
+        transition: transform 0.3s ease, z-index 0s ease 0.3s; /* Smooth transition */
+    }
 }
 
 /* Glowing Button Styles */
